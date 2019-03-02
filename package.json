@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "next": "^8.0.0",
+    "next-cookies": "^1.0.4",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   }
