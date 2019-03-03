@@ -62,9 +62,11 @@ export default class Index extends React.Component {
         </div>
       </div>
       <div className="messages">
-        <h3>About Us</h3>
+        <h3>Founders</h3>
         <div className="line"></div>
         <div className="audios">
+          <div className="audio"></div>
+          <div className="audio"></div>
           <div className="audio"></div>
           <div className="audio">
             <svg width="18" height="23" viewBox="0 0 18 23" fill="none">
@@ -72,20 +74,23 @@ export default class Index extends React.Component {
             </svg>
           </div>
           <div className="audio"></div>
+          <div className="audio"></div>
+          <div className="audio"></div>
         </div>
         <div className="message">
-        “Rafael is smart, fast and most importantly,
-  trustworthy. He’s an incredibly hard worker
-  and is always ready to go to bat for you.”
+        “Rafael has been a friend to me, and to Instacart, since the beginning.
+        He helped us find key employees and tell our story to investors. And
+        most importantly, Rafael is extremely easy to work with and always
+        willing to help - even on short notice.”
         </div>
-        <div className="person">— Peter Smith</div>
-        <div className="company">Blockchain</div>
+        <div className="person">— Max Mullen</div>
+        <div className="company">Instacart</div>
+        <div className="year">(Partnered in 2012)</div>
       </div>
       <div className="contact">
-        <h3>Contact</h3>
+        <h3>About Me</h3>
         <div className="line"></div>
         <div className="name">Rafael Corrales</div>
-        <div className="handle"><a target="_blank" href="mailto:rafael@background.vc">rafael@background.vc</a></div>
       </div>
       <style jsx>{`
         a {
@@ -123,7 +128,7 @@ export default class Index extends React.Component {
         .audio:hover {
           border: 6px solid;
         }
-        .audio:nth-child(2n) {
+        .audio:nth-child(4n) {
           border: 8px solid;
         }
         .audio:last-child {
