@@ -270,6 +270,10 @@ export default class Index extends React.Component {
         .name a svg {
           margin-left: 10px;
         }
+
+        .name a path {
+          fill: ${theme.main};
+        }
         .wrapper {
           display: flex;
           justify-content: center;
