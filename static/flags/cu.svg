@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="62px" height="62px" viewBox="0 0 62 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Combined Shape Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="30" cy="30" r="30"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Combined-Shape-Copy" transform="translate(1.000000, 1.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Oval" stroke="#EAEAEA" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+            <g id="Flag_of_Cuba" mask="url(#mask-2)" fill-rule="nonzero">
+                <g transform="translate(-1.000000, -1.000000)" id="Path">
+                    <polyline fill="#002A8F" points="0 0 123 0 123 62 0 62"></polyline>
+                    <polyline fill="#FFFFFF" points="0 12.4 123 12.4 123 24.8 0 24.8 0 37.2 123 37.2 123 49.6 0 49.6"></polyline>
+                    <polyline fill="#CF142B" points="53.259 31 0 0 0 62"></polyline>
+                    <polyline fill="#FFFFFF" points="17.758125 21.7 23.1931875 38.5175 8.9713125 28.1325 26.5295625 28.1325 12.3076875 38.5175"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -169,7 +169,7 @@ export default class Index extends React.Component {
         .audio {
           box-sizing: border-box;
           border: 1px solid ${theme.main};
-          border-radius: 100%;
+          border-radius: 100px;
           height: 60px;
           width: 60px;
           margin-right: 20px;
@@ -285,6 +285,11 @@ export default class Index extends React.Component {
         @media (max-width: 375px) {
           .audios {
             margin-bottom: 30px;
+            flex-direction: column;
+          }
+          .audio {
+            margin-right: 0;
+            margin-bottom: 10px;
           }
           .intro{
             height: 90vh;
@@ -302,6 +307,8 @@ export default class Index extends React.Component {
             line-height: 44px;
             text-align: left;
           }
+          .name {
+            font-size: 34px;
         }
       `}</style>
       <style global jsx>{`
