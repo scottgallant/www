@@ -157,13 +157,16 @@ export default class Index extends React.Component {
         <a href="https://www.linkedin.com/pulse/introducing-background-capital-rafael-corrales/" target="_blank">Background Capital Fund 1</a>
       </div>
       <style jsx>{`
+        @keyframes fadein {
+    			from { opacity: 0; }
+    			to   { opacity: 1; }
+    		}
         a {
           text-decoration: none;
           color: ${theme.main};
           transition: all .2s ease;
           border-bottom: 1px solid transparent;
         }
-
         a:hover {
           border-bottom: 1px solid ${theme.main};
         }
@@ -173,7 +176,7 @@ export default class Index extends React.Component {
         }
         .audio {
           box-sizing: border-box;
-          border: 1px solid ${theme.main};
+          border: 0px solid ${theme.main};
           border-radius: 100px;
           height: 60px;
           width: 60px;
@@ -286,6 +289,7 @@ export default class Index extends React.Component {
           max-width: 100vw;
           padding: 30px;
           flex-direction: column;
+          animation: fadein 2s;
         }
         @media (max-width: 375px) {
           .wrapper {
