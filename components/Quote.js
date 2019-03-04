@@ -8,7 +8,7 @@ const Quote = (props) => (
     <div className="year">
       (Partnered in {props.year})
       <div className="flag">
-         {props.flags.map(flag => <img src={flag}/>)}
+         {props.flags.map(flag => <img key={flag} src={flag}/>)}
       </div>
     </div>
     <Player
@@ -78,6 +78,10 @@ const Quote = (props) => (
           100%{
             opacity: 0;
           }
+        }
+        @media (max-width: 375px) {
+          padding-left: 5%;
+          padding-right: 5%;
         }
       `}
     </style>

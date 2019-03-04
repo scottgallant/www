@@ -4,6 +4,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import DarkToggle from '../components/dark-toggle'
 import Quote from '../components/Quote'
+import Play from '../components/icons/play'
+import Pause from '../components/icons/pause'
 import FOUNDERS from '../lib/founders'
 
 const themes = {
@@ -121,11 +123,14 @@ export default class Index extends React.Component {
                 key={key}
                 onClick={() => this.changeFounder(FOUNDERS[key])}
               >
-                <div className="play-icon">
-                  <svg width="18" height="23" viewBox="0 0 18 23" fill="none">
-                    <path d="M18 11.5L-1.01958e-06 22.3253L-7.32027e-08 0.674682L18 11.5Z" fill="#000"/>
-                  </svg>
-                </div>
+                {this.state.activeFounder.person === key && this.state.audioPlaying
+                  ? <Pause color={theme.main} />
+                  : (
+                    <div className="play-icon">
+                      <Play color={theme.main} />
+                    </div>
+                    )
+                }
               </button>
             ))
           }
@@ -144,7 +149,7 @@ export default class Index extends React.Component {
         <div className="name">
           <a href="https://www.linkedin.com/in/rafaelcorrales/" target="_blank">
             Rafael Corrales
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" style={{ marginTop: 4 }}>
               <path d="M18 0C8.0595 0 0 8.0595 0 18C0 27.9405 8.0595 36 18 36C27.9405 36 36 27.9405 36 18C36 8.0595 27.9405 0 18 0ZM15 24H12V15H15V24ZM13.5 13.6635C12.5895 13.6635 11.85 12.9195 11.85 12C11.85 11.082 12.588 10.3365 13.5 10.3365C14.412 10.3365 15.15 11.082 15.15 12C15.15 12.9195 14.4105 13.6635 13.5 13.6635ZM25.5 24H22.503V19.7085C22.503 16.887 19.5 17.1255 19.5 19.7085V24H16.5V15H19.5V16.6395C20.808 14.2155 25.5 14.0355 25.5 18.9615V24Z" fill="black"/>
             </svg>
           </a>
@@ -283,9 +288,14 @@ export default class Index extends React.Component {
           flex-direction: column;
         }
         @media (max-width: 375px) {
+          .wrapper {
+            padding: 0;
+          }
           .audios {
             margin-bottom: 30px;
-            flex-direction: column;
+            flex-wrap: wrap;
+            width: 140px;
+            justify-content: space-between;
           }
           .audio {
             margin-right: 0;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="62px" height="62px" viewBox="0 0 62 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Combined Shape Copy 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="30" cy="30" r="30"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Combined-Shape-Copy-5" transform="translate(1.000000, 1.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Oval" stroke="#EAEAEA" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+            <g id="Flag_of_Bangladesh" mask="url(#mask-2)" fill-rule="nonzero">
+                <g transform="translate(-18.000000, -3.000000)">
+                    <rect id="Rectangle" fill="#006A4E" x="0" y="0" width="108" height="65"></rect>
+                    <ellipse id="Oval" fill="#F42A41" cx="48.6" cy="32.5" rx="15" ry="14.5"></ellipse>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
