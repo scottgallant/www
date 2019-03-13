@@ -4,7 +4,7 @@ const Quote = (props) => (
   <section className={props.transitioning ? 'transitioning' : ''}>
     <div className="message">{props.message}</div>
     <div className="person">— {props.person}</div>
-    <div className="company">{props.company}</div>
+    <div className="company"><a href={props.link} target="_blank">{props.company}</a></div>
     <div className="year">
       (Partnered in {props.year})
       <div className="flag">

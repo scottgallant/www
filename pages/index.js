@@ -155,21 +155,13 @@ export default class Index extends React.Component {
           </a>
         </div>
         <a href="https://www.linkedin.com/pulse/introducing-background-capital-rafael-corrales/" target="_blank">Background Capital Fund 1</a>
+        <a href="https://www.linkedin.com/pulse/background-capital-fund-2-rafael-corrales/" target="_blank">Background Capital Fund 2</a>
       </div>
       <style jsx>{`
         @keyframes fadein {
     			from { opacity: 0; }
     			to   { opacity: 1; }
     		}
-        a {
-          text-decoration: none;
-          color: ${theme.main};
-          transition: all .2s ease;
-          border-bottom: 1px solid transparent;
-        }
-        a:hover {
-          border-bottom: 1px solid ${theme.main};
-        }
         .audios {
           display: flex;
           margin-bottom: 100px;
@@ -318,6 +310,15 @@ export default class Index extends React.Component {
         }
       `}</style>
       <style global jsx>{`
+        a {
+          text-decoration: none;
+          color: ${theme.main};
+          transition: all .2s ease;
+          border-bottom: 1px solid transparent;
+        }
+        a:hover {
+          border-bottom: 1px solid ${theme.main};
+        }
         body {
           background-color: ${theme.bodyBg};
           color: ${theme.main};
