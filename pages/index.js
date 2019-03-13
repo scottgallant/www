@@ -250,15 +250,6 @@ export default class Index extends React.Component {
           max-width: 100vw;
           flex-direction: column;
         }
-        .message {
-          max-width: 980px;
-          font-size: 44px;
-          font-weight: 600;
-          text-align: center;
-          margin-bottom: 40px;
-          letter-spacing: -1px;
-          line-height: 64px;
-        }
         .name {
           font-size: 44px;
           font-weight: 600;
@@ -291,14 +282,14 @@ export default class Index extends React.Component {
           flex-direction: column;
           animation: fadein 2s;
         }
-        @media (max-width: 375px) {
+        @media (max-width: 768px) {
           .wrapper {
             padding: 0;
           }
           .audios {
             margin-bottom: 30px;
             flex-wrap: wrap;
-            width: 140px;
+            width: 350px;
             justify-content: space-between;
           }
           .audio {
@@ -306,7 +297,7 @@ export default class Index extends React.Component {
             margin-bottom: 10px;
           }
           .intro{
-            height: 90vh;
+            height: 100vh;
           }
           .logotype svg {
             max-width: 100%;
@@ -316,13 +307,14 @@ export default class Index extends React.Component {
             height: auto;
             margin-bottom: 100px;
           }
-          .message {
-            font-size: 44px;
-            line-height: 44px;
-            text-align: left;
-          }
           .name {
             font-size: 34px;
+          }
+        }
+        @media (max-width: 375px) {
+          .audios {
+            width: 140px;
+          }
         }
       `}</style>
       <style global jsx>{`

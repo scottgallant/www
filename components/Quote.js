@@ -79,9 +79,43 @@ const Quote = (props) => (
             opacity: 0;
           }
         }
-        @media (max-width: 375px) {
+        @media (max-width: 768px) {
           padding-left: 5%;
           padding-right: 5%;
+
+          .company {
+            font-size: 26px;
+            margin-top: 10px;
+          }
+
+          .message {
+            font-size: 34px;
+            line-height: 44px;
+          }
+          .person {
+            font-size: 34px;
+            width: 100%;
+          }
+          .year {
+            width: 100%;
+          }
+        }
+        @media (max-width: 375px) {
+          .company {
+            font-size: 16px;
+          }
+
+          .message {
+            font-size: 24px;
+            line-height: 34px;
+          }
+          .person {
+            font-size: 24px;
+            width: 100%;
+          }
+          .year {
+            width: 100%;
+          }
         }
       `}
     </style>
