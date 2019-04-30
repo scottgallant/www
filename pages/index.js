@@ -90,6 +90,19 @@ export default class Index extends React.Component {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <link rel="shortcut icon" href="/static/favicon.png"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+      <meta name="twitter:card" content="summary_large_image" />
+    	<meta name="twitter:site" content="@RafaelCorrales" />
+    	<meta name="twitter:creator" content="@RafaelCorrales" />
+    	<meta name="twitter:title" content="Rafael Corrales" />
+    	<meta name="twitter:description" content="" />
+    	<meta name="twitter:image" content="https://raw.githubusercontent.com/backgroundvc/art/master/twitter-card.png" />
+    	<meta property="og:title" content="Rafael Corrales" />
+    	<meta property="og:type" content="website" />
+    	<meta property="og:description" content="" />
+    	<meta property="og:url" content="https://background.vc" />
+    	<meta property="og:image" content="https://raw.githubusercontent.com/backgroundvc/art/master/twitter-card.png" />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+    	<meta name="apple-mobile-web-app-status-bar-style" content="white" />
     </Head>
     <div className="wrapper">
       <DarkToggle
