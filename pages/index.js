@@ -169,6 +169,7 @@ export default class Index extends React.Component {
         </div>
         <div className="funds">
           <a href="https://www.linkedin.com/pulse/introducing-background-capital-rafael-corrales/" target="_blank">Fund 1</a>
+          /
           <a href="https://www.linkedin.com/pulse/background-capital-fund-2-rafael-corrales/" target="_blank">Fund 2</a>
         </div>
       </div>
@@ -230,6 +231,7 @@ export default class Index extends React.Component {
         }
         .funds a {
           margin-right: 10px;
+          margin-left: 10px;
         }
         .handle {
           font-size: 16px;
