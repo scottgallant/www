@@ -167,8 +167,10 @@ export default class Index extends React.Component {
             </svg>
           </a>
         </div>
-        <a href="https://www.linkedin.com/pulse/introducing-background-capital-rafael-corrales/" target="_blank">Background Capital Fund 1</a>
-        <a href="https://www.linkedin.com/pulse/background-capital-fund-2-rafael-corrales/" target="_blank">Background Capital Fund 2</a>
+        <div className="funds">
+          <a href="https://www.linkedin.com/pulse/introducing-background-capital-rafael-corrales/" target="_blank">Fund 1</a>
+          <a href="https://www.linkedin.com/pulse/background-capital-fund-2-rafael-corrales/" target="_blank">Fund 2</a>
+        </div>
       </div>
       <style jsx>{`
         @keyframes fadein {
@@ -221,6 +223,13 @@ export default class Index extends React.Component {
           align-items: center;
           max-width: 100vw;
           flex-direction: column;
+        }
+        .funds {
+          display: flex;
+          justify-content: center;
+        }
+        .funds a {
+          margin-right: 10px;
         }
         .handle {
           font-size: 16px;
