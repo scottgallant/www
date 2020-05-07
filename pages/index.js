@@ -27,12 +27,14 @@ const sleep = (ms) =>
   });
 
 export default class Index extends React.Component {
+  // TODO: Doesn't work with getStaticProps
   // static async getInitialProps(ctx) {
   //   return cookies(ctx);
   // }
 
   state = {
-    activeTheme: this.props.theme || 'dark',
+    // TODO: Dark Theme is clashing with Tina right now
+    activeTheme: this.props.theme || 'light',
     activeFounder: FOUNDERS['Max Mullen'],
     audioPlaying: false,
   };
