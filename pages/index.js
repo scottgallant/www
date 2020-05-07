@@ -287,7 +287,7 @@ function FoundersList({
           {
             name: 'year',
             component: 'number',
-            label: 'Link',
+            label: 'Year',
           },
           {
             name: 'link',
