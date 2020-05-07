@@ -7,7 +7,10 @@ import Quote from '../components/Quote';
 import Play from '../components/icons/play';
 import Pause from '../components/icons/pause';
 import { usePlugin } from 'tinacms';
-import { useGithubJsonForm } from 'react-tinacms-github';
+import {
+  useGithubJsonForm,
+  useGithubToolbarPlugins,
+} from 'react-tinacms-github';
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 import { InlineForm } from 'react-tinacms-inline';
 
@@ -312,6 +315,7 @@ function FoundersList({
   const activeFounderValues = founders[activeFounderIndex];
 
   usePlugin(form);
+  useGithubToolbarPlugins();
   return (
     <InlineForm form={form} initialStatus={'active'}>
       <div className='messages'>
