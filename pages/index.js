@@ -260,53 +260,49 @@ function FoundersList({
       {
         name: 'founders',
         label: 'Founders',
-        component: 'blocks',
-        templates: {
-          [undefined]: {
-            itemProps: (founder) => ({
-              label: founder.name,
-            }),
-            fields: [
-              {
-                name: 'person',
-                component: 'text',
-                label: 'Person',
-              },
-
-              {
-                name: 'company',
-                component: 'text',
-                label: 'Company',
-              },
-              {
-                name: 'message',
-                component: 'textarea',
-                label: 'Message',
-              },
-              {
-                name: 'link',
-                component: 'text',
-                label: 'Link',
-              },
-              {
-                name: 'year',
-                component: 'number',
-                label: 'Link',
-              },
-              {
-                name: 'audio',
-                component: 'text',
-                label: 'Audio',
-              },
-              {
-                name: 'picture',
-                component: 'text',
-                label: 'Picture',
-              },
-              // "flags": ["/static/flags/us.svg", "/static/flags/ca.svg"]
-            ],
+        component: 'group-list',
+        itemProps: (founder) => ({
+          label: founder.name,
+        }),
+        fields: [
+          {
+            name: 'person',
+            component: 'text',
+            label: 'Person',
           },
-        },
+
+          {
+            name: 'company',
+            component: 'text',
+            label: 'Company',
+          },
+          {
+            name: 'message',
+            component: 'textarea',
+            label: 'Message',
+          },
+          {
+            name: 'link',
+            component: 'text',
+            label: 'Link',
+          },
+          {
+            name: 'year',
+            component: 'number',
+            label: 'Link',
+          },
+          {
+            name: 'audio',
+            component: 'text',
+            label: 'Audio',
+          },
+          {
+            name: 'picture',
+            component: 'text',
+            label: 'Picture',
+          },
+          // "flags": ["/static/flags/us.svg", "/static/flags/ca.svg"]
+        ],
       },
     ],
   });
