@@ -168,6 +168,7 @@ export default class Index extends React.Component {
             </div>
           </div>
           <FoundersList
+            preview={this.props.preview}
             file={this.props.file}
             FOUNDERS={this.FOUNDERS}
             activeFounder={this.state.activeFounder}
@@ -251,6 +252,7 @@ export default class Index extends React.Component {
 }
 
 function FoundersList({
+  preview,
   file,
   activeFounder,
   setActiveFounder,
@@ -317,7 +319,7 @@ function FoundersList({
   usePlugin(form);
   useGithubToolbarPlugins();
   return (
-    <InlineForm form={form} initialStatus={'active'}>
+    <InlineForm form={form} initialStatus={preview ? 'active' : 'inactive'}>
       <div className='messages'>
         <h3>Founders</h3>
         <div className='line'></div>
@@ -345,6 +347,7 @@ function FoundersList({
         </div>
       </div>
       <Quote
+        preview={preview}
         transitioning={transitioning}
         transitionDuration={TRANSITION_DURATION}
         audioRef={audioRef}

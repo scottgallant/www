@@ -12,11 +12,7 @@ const Quote = (props) => {
         <InlineTextareaField name={`founders.${props.index}.person`} />
       </div>
       <div className='company'>
-        <a
-          // TODO: disable when editing
-          // href={props.link}
-          target='_blank'
-        >
+        <a href={props.preview ? undefined : props.link} target='_blank'>
           <InlineTextareaField name={`founders.${props.index}.company`} />
         </a>
       </div>
