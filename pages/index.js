@@ -6,6 +6,8 @@ import DarkToggle from '../components/dark-toggle';
 import Quote from '../components/Quote';
 import Play from '../components/icons/play';
 import Pause from '../components/icons/pause';
+import { usePlugin } from 'tinacms';
+import { useGithubJsonForm } from 'react-tinacms-github';
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 
 const themes = {
@@ -155,6 +157,7 @@ export default class Index extends React.Component {
             </div>
           </div>
           <FoundersList
+            file={this.props.file}
             FOUNDERS={this.FOUNDERS}
             activeFounder={this.state.activeFounder}
             setActiveFounder={this.changeFounder}
@@ -240,12 +243,15 @@ export default class Index extends React.Component {
 }
 
 function FoundersList({
+  file,
   FOUNDERS,
   activeFounder,
   setActiveFounder,
   audioPlaying,
   theme,
 }) {
+  const [, form] = useGithubJsonForm(file);
+  usePlugin(form);
   return (
     <>
       <div className='messages'>
