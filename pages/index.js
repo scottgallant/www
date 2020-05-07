@@ -6,7 +6,6 @@ import DarkToggle from '../components/dark-toggle';
 import Quote from '../components/Quote';
 import Play from '../components/icons/play';
 import Pause from '../components/icons/pause';
-import FOUNDERS from '../lib/founders';
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
 
 const themes = {
@@ -35,7 +34,7 @@ export default class Index extends React.Component {
   state = {
     // TODO: Dark Theme is clashing with Tina right now
     activeTheme: this.props.theme || 'light',
-    activeFounder: FOUNDERS['Max Mullen'],
+    activeFounder: this.FOUNDERS['Max Mullen'],
     audioPlaying: false,
   };
 
@@ -72,9 +71,10 @@ export default class Index extends React.Component {
   onAudioEnd = () => {
     const { activeFounder } = this.state;
     const nextFounderIndex =
-      Object.keys(FOUNDERS).indexOf(activeFounder.person) + 1;
+      Object.keys(this.FOUNDERS).indexOf(activeFounder.person) + 1;
     const nextFounder =
-      Object.values(FOUNDERS)[nextFounderIndex] || Object.values(FOUNDERS)[0];
+      Object.values(this.FOUNDERS)[nextFounderIndex] ||
+      Object.values(this.FOUNDERS)[0];
 
     this.setState(
       {
@@ -90,6 +90,10 @@ export default class Index extends React.Component {
   audioRef = (ref) => {
     this.audio = ref.audioEl;
   };
+
+  get FOUNDERS() {
+    return this.props.file.data;
+  }
 
   render() {
     const { activeTheme } = this.state;
@@ -154,16 +158,16 @@ export default class Index extends React.Component {
             <h3>Founders</h3>
             <div className='line'></div>
             <div className='audios'>
-              {Object.keys(FOUNDERS).map((key) => (
+              {Object.keys(this.FOUNDERS).map((key) => (
                 <button
                   className='audio'
                   style={{
                     backgroundRepeat: `no-repeat`,
                     backgroundSize: `100% 100%`,
-                    backgroundImage: `url('${FOUNDERS[key].picture}')`,
+                    backgroundImage: `url('${this.FOUNDERS[key].picture}')`,
                   }}
                   key={key}
-                  onClick={() => this.changeFounder(FOUNDERS[key])}
+                  onClick={() => this.changeFounder(this.FOUNDERS[key])}
                 >
                   {this.state.activeFounder.person === key &&
                   this.state.audioPlaying ? (
