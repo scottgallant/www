@@ -154,40 +154,20 @@ export default class Index extends React.Component {
               </svg>
             </div>
           </div>
-          <div className='messages'>
-            <h3>Founders</h3>
-            <div className='line'></div>
-            <div className='audios'>
-              {Object.keys(this.FOUNDERS).map((key) => (
-                <button
-                  className='audio'
-                  style={{
-                    backgroundRepeat: `no-repeat`,
-                    backgroundSize: `100% 100%`,
-                    backgroundImage: `url('${this.FOUNDERS[key].picture}')`,
-                  }}
-                  key={key}
-                  onClick={() => this.changeFounder(this.FOUNDERS[key])}
-                >
-                  {this.state.activeFounder.person === key &&
-                  this.state.audioPlaying ? (
-                    <Pause color={theme.main} />
-                  ) : (
-                    <div className='play-icon'>
-                      <Play color={theme.main} />
-                    </div>
-                  )}
-                </button>
-              ))}
-            </div>
-            <Quote
-              transitioning={this.state.transitioning}
-              transitionDuration={TRANSITION_DURATION}
-              audioRef={this.audioRef}
-              onAudioEnd={this.onAudioEnd}
-              {...this.state.activeFounder}
-            />
-          </div>
+          <FoundersList
+            FOUNDERS={this.FOUNDERS}
+            activeFounder={this.state.activeFounder}
+            setActiveFounder={this.changeFounder}
+            audioPlaying={this.audioPlaying}
+            theme={theme}
+          />
+          <Quote
+            transitioning={this.state.transitioning}
+            transitionDuration={TRANSITION_DURATION}
+            audioRef={this.audioRef}
+            onAudioEnd={this.onAudioEnd}
+            {...this.state.activeFounder}
+          />
           <div className='contact'>
             <h3>About Me</h3>
             <div className='line'></div>
@@ -227,170 +207,8 @@ export default class Index extends React.Component {
               </a>
             </div>
           </div>
-          <style jsx>{`
-            @keyframes fadein {
-              from {
-                opacity: 0;
-              }
-              to {
-                opacity: 1;
-              }
-            }
-            .audios {
-              display: flex;
-              margin-bottom: 100px;
-            }
-            .audio {
-              box-sizing: border-box;
-              border: 0px solid ${theme.main};
-              border-radius: 100px;
-              height: 60px;
-              width: 60px;
-              margin-right: 20px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              padding-left: 4px;
-              padding-right: 0;
-              cursor: pointer;
-              transition: border 0.2s ease;
-              outline: 0;
-              background-color: ${theme.bodyBg};
-            }
-            .audio .play-icon {
-              opacity: 0;
-              transition: opacity 0.2s ease;
-            }
-            .audio path {
-              fill: ${theme.main};
-              transition: fill 0.2s ease;
-            }
-            .audio:hover {
-              border: 6px solid ${theme.main};
-            }
+          <Styles theme={theme} />
 
-            .audio:hover > .play-icon {
-              opacity: 1;
-            }
-            .audio:last-child {
-              margin-right: 0;
-            }
-            .contact {
-              height: 100vh;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              max-width: 100vw;
-              flex-direction: column;
-            }
-            .funds {
-              display: flex;
-              justify-content: center;
-            }
-            .funds a {
-              margin-right: 10px;
-              margin-left: 10px;
-            }
-            .handle {
-              font-size: 16px;
-            }
-            .intro {
-              height: 100vh;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              max-width: 100vw;
-              flex-direction: column;
-            }
-            .line {
-              border-left: 1px solid ${theme.main};
-              height: 100px;
-              margin-bottom: 20px;
-            }
-            .logotype {
-              margin-bottom: 50px;
-            }
-            .logotype path {
-              fill: ${theme.main};
-            }
-            .logotype svg {
-              width: 340px;
-              height: auto;
-            }
-            .messages {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              max-width: 100vw;
-              flex-direction: column;
-            }
-            .name {
-              font-size: 44px;
-              font-weight: 600;
-              text-align: center;
-              line-height: 45px;
-              margin-bottom: 10px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-
-            .name a {
-              display: flex;
-              align-items: center;
-            }
-
-            .name a svg {
-              margin-left: 10px;
-            }
-
-            .name a path {
-              fill: ${theme.main};
-            }
-            .wrapper {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              max-width: 100vw;
-              padding: 30px;
-              flex-direction: column;
-              animation: fadein 2s;
-            }
-            @media (max-width: 768px) {
-              .wrapper {
-                padding: 0;
-              }
-              .audios {
-                margin-bottom: 30px;
-                flex-wrap: wrap;
-                width: 350px;
-                justify-content: space-between;
-              }
-              .audio {
-                margin-right: 0;
-                margin-bottom: 10px;
-              }
-              .intro {
-                height: 100vh;
-              }
-              .logotype svg {
-                max-width: 100%;
-                height: auto;
-              }
-              .messages {
-                height: auto;
-                margin-bottom: 100px;
-              }
-              .name {
-                font-size: 34px;
-              }
-            }
-            @media (max-width: 375px) {
-              .audios {
-                width: 140px;
-              }
-            }
-          `}</style>
           <style global jsx>{`
             a {
               text-decoration: none;
@@ -420,6 +238,213 @@ export default class Index extends React.Component {
     );
   }
 }
+
+function FoundersList({
+  FOUNDERS,
+  activeFounder,
+  setActiveFounder,
+  audioPlaying,
+  theme,
+}) {
+  return (
+    <>
+      <div className='messages'>
+        <h3>Founders</h3>
+        <div className='line'></div>
+        <div className='audios'>
+          {Object.keys(FOUNDERS).map((key) => (
+            <button
+              className='audio'
+              style={{
+                backgroundRepeat: `no-repeat`,
+                backgroundSize: `100% 100%`,
+                backgroundImage: `url('${FOUNDERS[key].picture}')`,
+              }}
+              key={key}
+              onClick={() => setActiveFounder(FOUNDERS[key])}
+            >
+              {activeFounder.person === key && audioPlaying ? (
+                <Pause color={theme.main} />
+              ) : (
+                <div className='play-icon'>
+                  <Play color={theme.main} />
+                </div>
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
+      <Styles theme={theme} />
+    </>
+  );
+}
+
+const Styles = ({ theme }) => (
+  <style jsx>{`
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .audios {
+      display: flex;
+      margin-bottom: 100px;
+    }
+    .audio {
+      box-sizing: border-box;
+      border: 0px solid ${theme.main};
+      border-radius: 100px;
+      height: 60px;
+      width: 60px;
+      margin-right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-left: 4px;
+      padding-right: 0;
+      cursor: pointer;
+      transition: border 0.2s ease;
+      outline: 0;
+      background-color: ${theme.bodyBg};
+    }
+    .audio .play-icon {
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .audio path {
+      fill: ${theme.main};
+      transition: fill 0.2s ease;
+    }
+    .audio:hover {
+      border: 6px solid ${theme.main};
+    }
+
+    .audio:hover > .play-icon {
+      opacity: 1;
+    }
+    .audio:last-child {
+      margin-right: 0;
+    }
+    .contact {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 100vw;
+      flex-direction: column;
+    }
+    .funds {
+      display: flex;
+      justify-content: center;
+    }
+    .funds a {
+      margin-right: 10px;
+      margin-left: 10px;
+    }
+    .handle {
+      font-size: 16px;
+    }
+    .intro {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 100vw;
+      flex-direction: column;
+    }
+    .line {
+      border-left: 1px solid ${theme.main};
+      height: 100px;
+      margin-bottom: 20px;
+    }
+    .logotype {
+      margin-bottom: 50px;
+    }
+    .logotype path {
+      fill: ${theme.main};
+    }
+    .logotype svg {
+      width: 340px;
+      height: auto;
+    }
+    .messages {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 100vw;
+      flex-direction: column;
+    }
+    .name {
+      font-size: 44px;
+      font-weight: 600;
+      text-align: center;
+      line-height: 45px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .name a {
+      display: flex;
+      align-items: center;
+    }
+
+    .name a svg {
+      margin-left: 10px;
+    }
+
+    .name a path {
+      fill: ${theme.main};
+    }
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 100vw;
+      padding: 30px;
+      flex-direction: column;
+      animation: fadein 2s;
+    }
+    @media (max-width: 768px) {
+      .wrapper {
+        padding: 0;
+      }
+      .audios {
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        width: 350px;
+        justify-content: space-between;
+      }
+      .audio {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+      .intro {
+        height: 100vh;
+      }
+      .logotype svg {
+        max-width: 100%;
+        height: auto;
+      }
+      .messages {
+        height: auto;
+        margin-bottom: 100px;
+      }
+      .name {
+        font-size: 34px;
+      }
+    }
+    @media (max-width: 375px) {
+      .audios {
+        width: 140px;
+      }
+    }
+  `}</style>
+);
 
 export const getStaticProps = async function ({ preview, previewData }) {
   if (preview) {
