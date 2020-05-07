@@ -94,7 +94,15 @@ export default class Index extends React.Component {
   };
 
   get FOUNDERS() {
-    return this.props.file.data;
+    const founderArray = this.props.file.data;
+
+    let foundersDict = {};
+
+    founderArray.forEach(
+      ({ name, ...founder }) => (foundersDict[name] = founder)
+    );
+
+    return foundersDict;
   }
 
   render() {
