@@ -9,6 +9,7 @@ import Pause from '../components/icons/pause';
 import { usePlugin } from 'tinacms';
 import { useGithubJsonForm } from 'react-tinacms-github';
 import { getGithubPreviewProps, parseJson } from 'next-tinacms-github';
+import { InlineForm } from 'react-tinacms-inline';
 
 const themes = {
   light: {
@@ -90,6 +91,7 @@ export default class Index extends React.Component {
   };
 
   audioRef = (ref) => {
+    if (!ref) return;
     this.audio = ref.audioEl;
   };
 
@@ -256,7 +258,19 @@ function FoundersList({
   onAudioEnd,
 }) {
   const [{ founders }, form] = useGithubJsonForm(file, {
+    label: 'Founders',
     fields: [
+      {
+        name: '',
+        component: () => {
+          return (
+            <p>
+              Click on a founder to reveal them on the page. From there you can
+              edit their information.
+            </p>
+          );
+        },
+      },
       {
         name: 'founders',
         label: 'Founders',
@@ -266,31 +280,16 @@ function FoundersList({
         }),
         fields: [
           {
-            name: 'person',
-            component: 'text',
-            label: 'Person',
-          },
-
-          {
-            name: 'company',
-            component: 'text',
-            label: 'Company',
-          },
-          {
-            name: 'message',
-            component: 'textarea',
-            label: 'Message',
+            name: 'year',
+            component: 'number',
+            label: 'Link',
           },
           {
             name: 'link',
             component: 'text',
             label: 'Link',
           },
-          {
-            name: 'year',
-            component: 'number',
-            label: 'Link',
-          },
+
           {
             name: 'audio',
             component: 'text',
@@ -307,13 +306,14 @@ function FoundersList({
     ],
   });
 
-  const activeFounderValues = founders.find(
+  const activeFounderIndex = founders.findIndex(
     ({ name }) => name === activeFounder.name
   );
+  const activeFounderValues = founders[activeFounderIndex];
 
   usePlugin(form);
   return (
-    <>
+    <InlineForm form={form} initialStatus={'active'}>
       <div className='messages'>
         <h3>Founders</h3>
         <div className='line'></div>
@@ -345,10 +345,11 @@ function FoundersList({
         transitionDuration={TRANSITION_DURATION}
         audioRef={audioRef}
         onAudioEnd={onAudioEnd}
+        index={activeFounderIndex}
         {...activeFounderValues}
       />
       <Styles theme={theme} />
-    </>
+    </InlineForm>
   );
 }
 
