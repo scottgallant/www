@@ -98,9 +98,7 @@ export default class Index extends React.Component {
 
     let foundersDict = {};
 
-    founderArray.forEach(
-      ({ name, ...founder }) => (foundersDict[name] = founder)
-    );
+    founderArray.forEach((founder) => (foundersDict[founder.name] = founder));
 
     return foundersDict;
   }
@@ -171,13 +169,10 @@ export default class Index extends React.Component {
             setActiveFounder={this.changeFounder}
             audioPlaying={this.audioPlaying}
             theme={theme}
-          />
-          <Quote
             transitioning={this.state.transitioning}
             transitionDuration={TRANSITION_DURATION}
             audioRef={this.audioRef}
             onAudioEnd={this.onAudioEnd}
-            {...this.state.activeFounder}
           />
           <div className='contact'>
             <h3>About Me</h3>
@@ -252,11 +247,13 @@ export default class Index extends React.Component {
 
 function FoundersList({
   file,
-  FOUNDERS,
   activeFounder,
   setActiveFounder,
   audioPlaying,
   theme,
+  transitioning,
+  audioRef,
+  onAudioEnd,
 }) {
   const [{ founders }, form] = useGithubJsonForm(file, {
     fields: [
@@ -314,6 +311,10 @@ function FoundersList({
     ],
   });
 
+  const activeFounderValues = founders.find(
+    ({ name }) => name === activeFounder.name
+  );
+
   usePlugin(form);
   return (
     <>
@@ -343,6 +344,13 @@ function FoundersList({
           ))}
         </div>
       </div>
+      <Quote
+        transitioning={transitioning}
+        transitionDuration={TRANSITION_DURATION}
+        audioRef={audioRef}
+        onAudioEnd={onAudioEnd}
+        {...activeFounderValues}
+      />
       <Styles theme={theme} />
     </>
   );
