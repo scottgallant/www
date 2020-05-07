@@ -258,7 +258,62 @@ function FoundersList({
   audioPlaying,
   theme,
 }) {
-  const [, form] = useGithubJsonForm(file);
+  const [{ founders }, form] = useGithubJsonForm(file, {
+    fields: [
+      {
+        name: 'founders',
+        label: 'Founders',
+        component: 'blocks',
+        templates: {
+          [undefined]: {
+            itemProps: (founder) => ({
+              label: founder.name,
+            }),
+            fields: [
+              {
+                name: 'person',
+                component: 'text',
+                label: 'Person',
+              },
+
+              {
+                name: 'company',
+                component: 'text',
+                label: 'Company',
+              },
+              {
+                name: 'message',
+                component: 'textarea',
+                label: 'Message',
+              },
+              {
+                name: 'link',
+                component: 'text',
+                label: 'Link',
+              },
+              {
+                name: 'year',
+                component: 'number',
+                label: 'Link',
+              },
+              {
+                name: 'audio',
+                component: 'text',
+                label: 'Audio',
+              },
+              {
+                name: 'picture',
+                component: 'text',
+                label: 'Picture',
+              },
+              // "flags": ["/static/flags/us.svg", "/static/flags/ca.svg"]
+            ],
+          },
+        },
+      },
+    ],
+  });
+
   usePlugin(form);
   return (
     <>
@@ -266,18 +321,18 @@ function FoundersList({
         <h3>Founders</h3>
         <div className='line'></div>
         <div className='audios'>
-          {Object.keys(FOUNDERS).map((key) => (
+          {founders.map((founder) => (
             <button
               className='audio'
               style={{
                 backgroundRepeat: `no-repeat`,
                 backgroundSize: `100% 100%`,
-                backgroundImage: `url('${FOUNDERS[key].picture}')`,
+                backgroundImage: `url('${founder.picture}')`,
               }}
-              key={key}
-              onClick={() => setActiveFounder(FOUNDERS[key])}
+              key={founder.name}
+              onClick={() => setActiveFounder(founder)}
             >
-              {activeFounder.person === key && audioPlaying ? (
+              {activeFounder.person === founder.name && audioPlaying ? (
                 <Pause color={theme.main} />
               ) : (
                 <div className='play-icon'>
