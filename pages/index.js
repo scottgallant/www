@@ -265,9 +265,13 @@ function FoundersList({
           },
           {
             name: "link",
-            description: 'Include the "https://"',
             component: "text",
             label: "Link",
+            validate(value) {
+              if (!value.startsWith("https://")) {
+                return "Must begin with `https://`";
+              }
+            },
           },
           {
             name: "audio",
@@ -303,6 +307,11 @@ function FoundersList({
             name: "url",
             component: "text",
             label: "URL",
+            validate(value) {
+              if (!value.startsWith("https://")) {
+                return "Must begin with `https://`";
+              }
+            },
           },
         ],
       },
