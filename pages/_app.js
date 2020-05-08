@@ -6,6 +6,7 @@ import {
   TinacmsGithubProvider,
   GithubMediaStore,
 } from "react-tinacms-github";
+import { AudioFieldPlugin } from "../lib/audio-field-plugin";
 
 export default class Site extends App {
   constructor(props) {
@@ -14,6 +15,7 @@ export default class Site extends App {
      * 1. Create the TinaCMS instance
      */
     this.cms = new TinaCMS({
+      plugins: [AudioFieldPlugin],
       apis: {
         /**
          * 2. Register the GithubClient

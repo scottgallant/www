@@ -167,7 +167,6 @@ export default class Index extends React.Component {
           <FoundersList
             preview={this.props.preview}
             file={this.props.file}
-            FOUNDERS={this.FOUNDERS}
             activeFounder={this.state.activeFounder}
             setActiveFounder={this.changeFounder}
             audioPlaying={this.audioPlaying}
