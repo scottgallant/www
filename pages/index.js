@@ -12,7 +12,7 @@ import {
   useGithubToolbarPlugins,
 } from "react-tinacms-github";
 import { getGithubPreviewProps, parseJson } from "next-tinacms-github";
-import { InlineForm } from "react-tinacms-inline";
+import { TRANSITION_DURATION } from "../lib/transition";
 
 const themes = {
   light: {
@@ -25,7 +25,6 @@ const themes = {
   },
 };
 
-const TRANSITION_DURATION = 400;
 const sleep = (ms) =>
   new Promise((resolve) => {
     setTimeout(resolve, ms);
@@ -374,7 +373,6 @@ function FoundersList({
       <Quote
         preview={preview}
         transitioning={transitioning}
-        transitionDuration={TRANSITION_DURATION}
         audioRef={audioRef}
         onAudioEnd={onAudioEnd}
         index={activeFounderIndex}

@@ -1,5 +1,7 @@
 import Player from "react-audio-player";
 
+import { TRANSITION_DURATION } from "../lib/transition";
+
 const Quote = (props) => {
   return (
     <section className={props.transitioning ? "transitioning" : ""}>
@@ -31,11 +33,10 @@ const Quote = (props) => {
             flex-direction: column;
             align-items: center;
             opacity: 0;
-            animation: ${props.transitionDuration / 1000}s ease fade-in forwards;
+            animation: ${TRANSITION_DURATION / 1000}s ease fade-in forwards;
           }
           section.transitioning {
-            animation: ${props.transitionDuration / 1000}s ease fade-out
-              forwards;
+            animation: ${TRANSITION_DURATION / 1000}s ease fade-out forwards;
           }
           .message {
             max-width: 980px;
