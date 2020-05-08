@@ -1,10 +1,11 @@
-import App from 'next/app';
-import { TinaCMS, TinaProvider } from 'tinacms';
+import App from "next/app";
+import { TinaCMS, TinaProvider } from "tinacms";
 import {
   useGithubEditing,
   GithubClient,
   TinacmsGithubProvider,
-} from 'react-tinacms-github';
+  GithubMediaStore,
+} from "react-tinacms-github";
 
 export default class Site extends App {
   constructor(props) {
@@ -18,8 +19,8 @@ export default class Site extends App {
          * 2. Register the GithubClient
          */
         github: new GithubClient({
-          proxy: '/api/proxy-github',
-          authCallbackRoute: '/api/create-github-access-token',
+          proxy: "/api/proxy-github",
+          authCallbackRoute: "/api/create-github-access-token",
           clientId: process.env.GITHUB_CLIENT_ID,
           baseRepoFullName: process.env.REPO_FULL_NAME, // e.g: tinacms/tinacms.org,
         }),
@@ -35,6 +36,7 @@ export default class Site extends App {
         hidden: !props.pageProps.preview,
       },
     });
+    this.cms.media.store = new GithubMediaStore(this.cms.api.github);
   }
 
   render() {
@@ -78,7 +80,7 @@ export const EditLink = ({ editMode }) => {
 
   return (
     <button onClick={editMode ? github.exitEditMode : github.enterEditMode}>
-      {editMode ? 'Exit Edit Mode' : 'Edit This Site'}
+      {editMode ? "Exit Edit Mode" : "Edit This Site"}
     </button>
   );
 };

@@ -7,12 +7,10 @@ import Quote from "../components/Quote";
 import Play from "../components/icons/play";
 import Pause from "../components/icons/pause";
 import { usePlugin } from "tinacms";
-import {
-  useGithubJsonForm,
-  useGithubToolbarPlugins,
-} from "react-tinacms-github";
+import { useGithubToolbarPlugins } from "react-tinacms-github";
 import { getGithubPreviewProps, parseJson } from "next-tinacms-github";
 import { TRANSITION_DURATION } from "../lib/transition";
+import { useSiteDataForm } from "../lib/use-site-data-form";
 
 const themes = {
   light: {
