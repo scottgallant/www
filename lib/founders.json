@@ -1,4 +1,14 @@
 {
+  "funds": [
+    {
+      "link": "https://www.linkedin.com/pulse/introducing-background-capital-rafael-corrales/",
+      "text": "Fund 1"
+    },
+    {
+      "link": "https://www.linkedin.com/pulse/background-capital-fund-2-rafael-corrales/",
+      "text": "Fund 2"
+    }
+  ],
   "founders": [
     {
       "name": "Max Mullen",
