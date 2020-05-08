@@ -19,5 +19,8 @@
   },
   "devDependencies": {
     "hygen-next-tinacms-github": "https://github.com/dwalkr/hygen-next-tinacms-github"
+  },
+  "prettier": {
+    "singleQuote": false
   }
 }
