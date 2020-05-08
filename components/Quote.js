@@ -1,8 +1,22 @@
 import Player from "react-audio-player";
+import { useCMS } from "tinacms";
 
 import { TRANSITION_DURATION } from "../lib/transition";
 
 const Quote = (props) => {
+  const cms = useCMS();
+
+  const audioSrc = React.useMemo(() => {
+    if (!props.preview) return props.audio;
+    const repo = cms.api.github.workingRepoFullName;
+    const branch = cms.api.github.branchName;
+    const file = props.audio;
+
+    // Fetches Content from Github when editing because new files
+    // will not be available on the production vercel server yet
+    return `https://raw.githubusercontent.com/${repo}/${branch}/${file}`;
+  }, [props.preview, props.audio]);
+
   return (
     <section className={props.transitioning ? "transitioning" : ""}>
       <div className="message">{props.message}</div>
@@ -21,7 +35,7 @@ const Quote = (props) => {
         </div>
       </div>
       <Player
-        src={props.audio}
+        src={audioSrc}
         ref={props.audioRef}
         onEnded={props.onAudioEnd}
         controls={false}
