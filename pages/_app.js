@@ -59,8 +59,8 @@ export default class Site extends App {
           {/**
            * 5. Add a button for entering Preview/Edit Mode
            */}
-          <EditLink editMode={pageProps.preview} />
           <Component {...pageProps} />
+          <EditLink editMode={pageProps.preview} />
         </TinacmsGithubProvider>
       </TinaProvider>
     );
@@ -70,11 +70,17 @@ export default class Site extends App {
 export const EditLink = ({ editMode }) => {
   const github = useGithubEditing();
 
-  if (editMode) return null;
-
   return (
-    <button onClick={editMode ? github.exitEditMode : github.enterEditMode}>
-      Edit This Site
+    <button
+      style={{
+        margin: "2.5rem 0 2.5rem 0",
+        width: "100%",
+        border: "none",
+        background: "transparent",
+      }}
+      onClick={editMode ? github.exitEditMode : github.enterEditMode}
+    >
+      {editMode ? "Click to Stop Editing" : "Click to Edit"}
     </button>
   );
 };
