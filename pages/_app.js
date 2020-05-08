@@ -69,18 +69,29 @@ export default class Site extends App {
 
 export const EditLink = ({ editMode }) => {
   const github = useGithubEditing();
+  const [pending, setPending] = React.useState(false);
+
+  const style = {
+    margin: "2.5rem 0 2.5rem 0",
+    width: "100%",
+    border: "none",
+    background: "transparent",
+  };
 
   return (
     <button
-      style={{
-        margin: "2.5rem 0 2.5rem 0",
-        width: "100%",
-        border: "none",
-        background: "transparent",
+      style={style}
+      onClick={() => {
+        setPending(true);
+        if (editMode) {
+          github.exitEditMode();
+        } else {
+          github.enterEditMode();
+        }
       }}
-      onClick={editMode ? github.exitEditMode : github.enterEditMode}
     >
-      {editMode ? "Click to Stop Editing" : "Click to Edit"}
+      {pending && "One Moment..."}
+      {!pending && (editMode ? "Click to Stop Editing" : "Click to Edit")}
     </button>
   );
 };
