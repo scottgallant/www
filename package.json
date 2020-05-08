@@ -9,15 +9,18 @@
     "dotenv": "^8.2.0",
     "next": "^9.3.6",
     "next-cookies": "^1.0.4",
-    "next-tinacms-github": "^0.1.0",
+    "next-tinacms-github": "^0.1.0-canary4.1",
+    "next-tinacms-json": "^0.3.14-alpha.1",
+    "next-tinacms-markdown": "^0.2.14-alpha.1",
     "react": "^16.7.0",
     "react-audio-player": "^0.11.0",
     "react-dom": "^16.7.0",
     "react-select": "^3.1.0",
-    "react-tinacms-github": "^0.2.0",
-    "react-tinacms-inline": "^0.4.6",
+    "react-tinacms-editor": "^0.5.2-alpha.1",
+    "react-tinacms-github": "^0.3.0-alpha.1",
+    "react-tinacms-inline": "^0.4.7-alpha.1",
     "styled-components": "^5.1.0",
-    "tinacms": "^0.19.1"
+    "tinacms": "^0.19.2-alpha.1"
   },
   "devDependencies": {
     "hygen-next-tinacms-github": "https://github.com/dwalkr/hygen-next-tinacms-github"
