@@ -17,9 +17,12 @@
       "company": "Instacart",
       "link": "https://www.instacart.com/",
       "year": 2012,
-      "audio": "/static/audios/max-mullen.m4a",
+      "audio": "/static/audios/time-for-lunch.m4a",
       "picture": "/static/avatars/max-mullen.png",
-      "flags": ["/static/flags/us.svg", "/static/flags/ca.svg"]
+      "flags": [
+        "/static/flags/us.svg",
+        "/static/flags/ca.svg"
+      ]
     },
     {
       "name": "Alex MacCaw",
@@ -30,7 +33,9 @@
       "year": 2014,
       "audio": "/static/audios/alex-mac-caw.m4a",
       "picture": "/static/avatars/alex-mac-caw.jpg",
-      "flags": ["/static/flags/en.svg"]
+      "flags": [
+        "/static/flags/en.svg"
+      ]
     },
     {
       "name": "Arnold Engel",
@@ -41,7 +46,10 @@
       "year": 2018,
       "audio": "/static/audios/arnold-engel.m4a",
       "picture": "/static/avatars/arnold-engel.jpeg",
-      "flags": ["/static/flags/ca.svg", "/static/flags/us.svg"]
+      "flags": [
+        "/static/flags/ca.svg",
+        "/static/flags/us.svg"
+      ]
     },
     {
       "name": "Vlad Magdalin",
@@ -52,7 +60,9 @@
       "year": 2014,
       "audio": "/static/audios/vlad-magdalin.m4a",
       "picture": "/static/avatars/vlad-magdalin.jpg",
-      "flags": ["/static/flags/ru.svg"]
+      "flags": [
+        "/static/flags/ru.svg"
+      ]
     },
     {
       "name": "Nick Narodny",
@@ -63,7 +73,10 @@
       "year": 2018,
       "audio": "/static/audios/nick-narodny.m4a",
       "picture": "/static/avatars/nick-narodny-2.JPG",
-      "flags": ["/static/flags/us.svg", "/static/flags/do.svg"]
+      "flags": [
+        "/static/flags/us.svg",
+        "/static/flags/do.svg"
+      ]
     },
     {
       "name": "Kendall Tucker",
@@ -74,7 +87,10 @@
       "year": 2018,
       "audio": "/static/audios/kendall-tucker.m4a",
       "picture": "/static/avatars/kendall-tucker.png",
-      "flags": ["/static/flags/us.svg", "/static/flags/en.svg"]
+      "flags": [
+        "/static/flags/us.svg",
+        "/static/flags/en.svg"
+      ]
     },
     {
       "name": "Jeremy Conrad",
@@ -85,7 +101,10 @@
       "year": 2018,
       "audio": "/static/audios/jeremy-conrad.m4a",
       "picture": "/static/avatars/jeremy-conrad.jpg",
-      "flags": ["/static/flags/us.svg", "/static/flags/ir.svg"]
+      "flags": [
+        "/static/flags/us.svg",
+        "/static/flags/ir.svg"
+      ]
     },
     {
       "name": "Matt O'Connor",
@@ -96,7 +115,10 @@
       "year": 2018,
       "audio": "/static/audios/matt-oconnor.m4a",
       "picture": "/static/avatars/matthew-oconnor.jpg",
-      "flags": ["/static/flags/us.svg", "/static/flags/ba.svg"]
+      "flags": [
+        "/static/flags/us.svg",
+        "/static/flags/ba.svg"
+      ]
     },
     {
       "name": "David Vivero",
@@ -107,7 +129,10 @@
       "year": 2015,
       "audio": "/static/audios/david-vivero.m4a",
       "picture": "/static/avatars/david-vivero.jpg",
-      "flags": ["/static/flags/us.svg", "/static/flags/cu.svg"]
+      "flags": [
+        "/static/flags/us.svg",
+        "/static/flags/cu.svg"
+      ]
     },
     {
       "name": "Michaël Villar",
@@ -118,7 +143,9 @@
       "year": 2018,
       "audio": "/static/audios/michael-villar.m4a",
       "picture": "/static/avatars/michael-villar.jpg",
-      "flags": ["/static/flags/be.svg"]
+      "flags": [
+        "/static/flags/be.svg"
+      ]
     }
   ]
 }
