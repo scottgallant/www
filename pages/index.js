@@ -471,7 +471,7 @@ export const getStaticProps = async function ({ preview, previewData }) {
   if (preview) {
     return getGithubPreviewProps({
       ...previewData,
-      fileRelativePath: "lib/founders.json",
+      fileRelativePath: "content/site.json",
       parse: parseJson,
     });
   }
@@ -481,8 +481,8 @@ export const getStaticProps = async function ({ preview, previewData }) {
       error: null,
       preview: false,
       file: {
-        fileRelativePath: "lib/founders.json",
-        data: (await import("../lib/founders.json")).default,
+        fileRelativePath: "content/site.json",
+        data: (await import("../content/site.json")).default,
       },
     },
   };
