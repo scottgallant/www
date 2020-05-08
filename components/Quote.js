@@ -1,24 +1,18 @@
-import Player from 'react-audio-player';
-import { InlineTextareaField } from 'react-tinacms-inline';
+import Player from "react-audio-player";
 
 const Quote = (props) => {
   return (
-    <section className={props.transitioning ? 'transitioning' : ''}>
-      <div className='message'>
-        <InlineTextareaField name={`founders.${props.index}.message`} />
-      </div>
-      <div className='person'>
-        —
-        <InlineTextareaField name={`founders.${props.index}.person`} />
-      </div>
-      <div className='company'>
-        <a href={props.preview ? undefined : props.link} target='_blank'>
-          <InlineTextareaField name={`founders.${props.index}.company`} />
+    <section className={props.transitioning ? "transitioning" : ""}>
+      <div className="message">{props.message}</div>
+      <div className="person">—{props.person}</div>
+      <div className="company">
+        <a href={props.preview ? undefined : props.link} target="_blank">
+          {props.company}
         </a>
       </div>
-      <div className='year'>
+      <div className="year">
         (Partnered in {props.year})
-        <div className='flag'>
+        <div className="flag">
           {props.flags.map((flag) => (
             <img key={flag} src={flag} />
           ))}

@@ -344,7 +344,7 @@ function FoundersList({
   usePlugin(form);
   useGithubToolbarPlugins();
   return (
-    <InlineForm form={form} initialStatus={preview ? "active" : "inactive"}>
+    <>
       <div className="messages">
         <h3>Founders</h3>
         <div className="line"></div>
@@ -381,7 +381,7 @@ function FoundersList({
         {...activeFounderValues}
       />
       <Styles theme={theme} />
-    </InlineForm>
+    </>
   );
 }
 
