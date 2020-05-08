@@ -222,7 +222,7 @@ function FoundersList({
   audioRef,
   onAudioEnd,
 }) {
-  const [{ founders }, form] = useGithubJsonForm(file, {
+  const [{ links, founders }, form] = useGithubJsonForm(file, {
     label: " ",
     fields: [
       {
@@ -232,6 +232,15 @@ function FoundersList({
         itemProps: (founder) => ({
           label: founder.name,
         }),
+        defaultItem: {
+          name: "New Founder",
+          picture: "",
+          message: "",
+          year: 2020,
+          link: "",
+          audio: "",
+          flags: [],
+        },
         fields: [
           {
             name: "name",
@@ -275,16 +284,20 @@ function FoundersList({
       },
       {
         name: "links",
-        label: "Fund Links",
+        label: "Links",
         component: "group-list",
         itemProps: (links) => ({
           label: links.text,
         }),
+        defaultItem: {
+          text: "Fund X",
+          url: "",
+        },
         fields: [
           {
             name: "text",
             component: "text",
-            label: "Link Text",
+            label: "Text",
           },
           {
             name: "url",
@@ -360,19 +373,15 @@ function FoundersList({
           </a>
         </div>
         <div className="funds">
-          <a
-            href="https://www.linkedin.com/pulse/introducing-background-capital-rafael-corrales/"
-            target="_blank"
-          >
-            Fund 1
-          </a>
-          /
-          <a
-            href="https://www.linkedin.com/pulse/background-capital-fund-2-rafael-corrales/"
-            target="_blank"
-          >
-            Fund 2
-          </a>
+          {links.map(({ url, text }, index, array) => (
+            <>
+              <a href={url} target="_blank">
+                {text}
+              </a>
+              {/* TODO: This could probably be accomplished with CSS */}
+              {index !== array.length - 1 && <span>/</span>}
+            </>
+          ))}
         </div>
       </div>
       <Styles theme={theme} />
