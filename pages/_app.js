@@ -8,6 +8,7 @@ import {
 } from "react-tinacms-github";
 import { AudioFieldPlugin } from "../lib/audio-field-plugin";
 import { FlagSelectFieldPlugin } from "../lib/flag-select-plugin";
+import { enterEditMode, exitEditMode } from "../lib/edit-mode";
 
 export default class Site extends App {
   constructor(props) {
@@ -66,24 +67,14 @@ export default class Site extends App {
   }
 }
 
-const enterEditMode = () => {
-  return fetch(`/api/preview`).then(() => {
-    window.location.href = window.location.pathname;
-  });
-};
-
-const exitEditMode = () => {
-  return fetch(`/api/reset-preview`).then(() => {
-    window.location.reload();
-  });
-};
-
 export const EditLink = ({ editMode }) => {
   const github = useGithubEditing();
 
+  if (editMode) return null;
+
   return (
     <button onClick={editMode ? github.exitEditMode : github.enterEditMode}>
-      {editMode ? "Exit Edit Mode" : "Edit This Site"}
+      Edit This Site
     </button>
   );
 };
