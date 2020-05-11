@@ -76,10 +76,12 @@ export const EditLink = ({ editMode }) => {
     width: "100%",
     border: "none",
     background: "transparent",
+    textAlign: "center",
+    display: "inline-block",
   };
 
   return (
-    <button
+    <a
       style={style}
       onClick={() => {
         setPending(true);
@@ -92,6 +94,6 @@ export const EditLink = ({ editMode }) => {
     >
       {pending && "One Moment..."}
       {!pending && (editMode ? "Click to Stop Editing" : "Click to Edit")}
-    </button>
+    </a>
   );
 };
